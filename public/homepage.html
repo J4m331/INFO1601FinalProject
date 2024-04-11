@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UWI Central Hub</title>
+
+  <style>
+
+    h2{
+      font-family: verdana;
+      color: orangered;
+    }
+
+    p{
+      font-family: verdana;
+      color:white;
+    }
+
+    body{
+      background-color: #001a33;
+      margin: 0; /* Reset default margin */
+      padding: 0; /* Reset default padding */
+    }
+
+    header{
+      background-color: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px; /* Add padding for better spacing */
+    }
+
+    header h2{
+      margin-left: 20px;
+    }
+
+    header button {
+      margin-right: 20px;
+      background-color: orangered;
+      color: black;
+      font-family: verdana;
+      font-size: 16px;
+      width: 100px;
+      height: 30px;
+      border-radius: 7px;
+    }
+
+    #Welcome {
+      position: relative;
+      text-align: center;
+    }
+
+    #wlcimg {
+      position: relative; /* Change to relative to ensure gradient is positioned correctly */
+      width: 100%;
+      height: auto;
+    }
+
+    #wlcimg img{
+      width: 100%;
+      height: 100vh;
+    }
+
+    #wlcgradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, #001a33 20%,
+    rgba(0, 26, 51, 0.8) 30%,
+    rgba(0, 26, 51, 0.6)50%,
+    rgba(0, 26, 51, 0.4) 70%,
+    rgba(0, 26, 51, 0.2) 100%);
+      opacity: 0.9;
+      z-index: 0;
+    }
+
+    #wlctxt {
+      position: absolute;
+      left: 50%;
+      bottom: 0%;
+      transform: translate(-50%, -50%); /* Center text horizontally and vertically */
+      z-index: 1;
+    }
+
+    #wlctxt h2{
+      font-size: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <header> 
+    <h2>UCH</h2>
+    <button> Sign Up</button>
+  </header>
+
+  <div id="Welcome">
+    <div id="wlcimg">
+      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
+      <div id="wlcgradient"></div> <!-- Moved gradient inside the image div -->
+    </div>
+    <div id="wlctxt">
+      <p>Welcome to</p>
+      <h2>UWI Central HUB</h2>
+      <p> All Things UWI</p>
+    </div>
+  </div>
+</body>
+</html>
