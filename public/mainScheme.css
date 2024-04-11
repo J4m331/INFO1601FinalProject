@@ -20,6 +20,7 @@ body{
 button{
     background-color: orange;
     color: darkblue;
+    border-radius: 25%;
 }
 
 #homePage{
@@ -37,3 +38,18 @@ button{
     height: auto;
     border: solid 3px black;
 }
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+.row {margin: 0 -5px;}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+  }
