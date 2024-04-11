@@ -9,7 +9,19 @@
 }
 
 #navBar h1{
-    text-decoration: orange;
+    margin-left: 5%;
+    margin-right: auto;
+    font-size: 6vh;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+#navBar button{
+    margin-left: auto;
+    margin-right: 5%;
+    font-size: 4vh;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 body{
@@ -20,7 +32,7 @@ body{
 button{
     background-color: orange;
     color: darkblue;
-    border-radius: 25%;
+    border-radius: 15%;
 }
 
 #homePage{
@@ -31,25 +43,21 @@ button{
     margin-top: auto;
     margin-bottom: auto;
     height: 100vh;
+    background-image: url('./images/PXL_20240324_204800385.RAW-02.ORIGINAL.jpg');
+}
+
+#homePage #homePageText{
+    text-align: center;
+    color: white;
+    padding-top: 60vh;
 }
 
 .container{
-    width:auto;
-    height: auto;
+    width:20%;
+    height: 33vh;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
     border: solid 3px black;
+    text-align: left;
+    border-radius: 5%;
 }
-
-.column {
-    float: left;
-    width: 25%;
-    padding: 0 10px;
-}
-
-.row {margin: 0 -5px;}
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
-    text-align: center;
-    background-color: #f1f1f1;
-  }
