@@ -1,0 +1,14 @@
+#navBar{
+    background-color: darkblue;
+    display: flex;
+}
+
+#navBar h1{
+    text-decoration: orange;
+}
+
+.container{
+    width:auto;
+    height: auto;
+    border: solid 3px black;
+}
