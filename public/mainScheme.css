@@ -1,3 +1,8 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    color: orange;
+}
+
 #navBar{
     background-color: darkblue;
     display: flex;
@@ -5,6 +10,26 @@
 
 #navBar h1{
     text-decoration: orange;
+}
+
+body{
+    /*background-image: url("images/UWI_IMG1.jpg");*/
+    background-color: rgb(0, 0, 92);
+}
+
+button{
+    background-color: orange;
+    color: darkblue;
+}
+
+#homePage{
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100vh;
 }
 
 .container{
