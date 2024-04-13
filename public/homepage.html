@@ -170,6 +170,44 @@
       margin: 0;
       }
 
+      .popup {
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #001a33;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+          z-index: 9999;
+
+
+          width: 70%;
+          height: 70%;
+          text-align: center;
+      }
+
+      /* Style for the close button */
+      .close {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+      }
+
+      /* Style for the overlay */
+      .overlay {
+          display: none;
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          background-color: rgba(0,0,0,0.5);
+          z-index: 9998;
+
     </style>
 </head>
 
@@ -197,89 +235,25 @@
 
     <div class="allrectiles">
 
-      <div class="recommendedTile">
+      <div class="recommendedTile" onclick="openPopup()">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
+
+        <div class="tilegradient"></div>
+
+        <div class="tiletxt">
+        <h3>UCH</h3>
+        </div>
+
+    </div>
+
+    <div class="recommendedTile" >
       <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
 
       <div class="tilegradient"></div>
 
       <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-      
-    </div>
-
-  </div>
-
-
-  <div class="recommended">
-    <h3>Clubs and Societies</h3>
-
-    <div class="allrectiles">
-
-      <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
+      <h3 >UCH</h3>
       </div>
 
     </div>
@@ -321,204 +295,29 @@
 
   </div>
 
-
-  <div class="recommended">
-    <h3>Vendors</h3>
-
-    <div class="allrectiles">
-
-      <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-      
-    </div>
-
+  <div id="popup" class="popup">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <img src="https://legiit-service.s3.amazonaws.com/73f8891e6e95315ca9d3c3e6226c47a1/6173b646e3f627312285ce2cf48df413.png" alt="Image" style="max-height: 60%;">
+    <h2>Display Name</h2>
+    <p>Description goes here...</p>
   </div>
 
-
-  <div class="recommended">
-    <h3>Events</h3>
-
-    <div class="allrectiles">
-
-      <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-      
-    </div>
-
-  </div>
-
-
-  <div class="recommended">
-    <h3>Others</h3>
-
-    <div class="allrectiles">
-
-      <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-
-    <div class="recommendedTile">
-      <img src="https://sat02pap003files.storage.live.com/y4m1iUMhOr8uN88-nqXvJB-aETLuOq7k2MiAAOmpOX8cO9BxZxPctzf_tHE04ZEJnUsfo55jf3niM8hBe1ulsANcQxx1TceeAEh4n8WVp9dkWhDda7_s9M_Azmht0QDJsx3yi7gmqz8EXDpIZyVmLOi3ffjSSTS5f2MH9K1A44Iet6CLisZoVpRlgsmgJTnuyvMq6Wg7xTYinSoBWVER0n79vGh612mDnkLAoKSChpH9mw?encodeFailures=1&width=1438&height=809">
-
-      <div class="tilegradient"></div>
-
-      <div class="tiletxt">
-      <h3>UCH</h3>
-      </div>
-
-    </div>
-      
-    </div>
-
-  </div>
+  <!-- The overlay -->
+  <div id="overlay" class="overlay"></div>
 
 </body>
 
 <script>
+
+  function openPopup() {
+      document.getElementById("popup").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+  }
+
+  function closePopup() {
+      document.getElementById("popup").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+  }
   
 </script>
 </html>
