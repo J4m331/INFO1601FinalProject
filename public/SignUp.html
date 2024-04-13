@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+
+<style>
+  body{
+      background-color: #00002B;
+      color: white;
+      font-family: verdana;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+  header{
+      background-color: black;
+      display: flex;
+      width: 100%;
+      margin: 0;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0px 5px 50px rgba(255, 255, 255, 0.1);
+    }
+
+    header h2{
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    #signup{
+      position: relative;
+      top: 30px;
+    }
+
+    .buttondiv{
+      text-align: center;
+    }
+
+    .button{
+      background-color: orangered;
+      color: black;
+      width: 100px;
+      height: 35px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+    }
+
+    h2{
+      color: orangered;
+    }
+
+    .signup-part {
+      display: none;
+    }
+
+    h3{
+      position: relative;
+      text-align: center;
+    }
+    
+    form {
+      text-align: left;
+      width: 500px; /* Adjust as needed */
+      position: relative;
+      top: 20px;
+      margin-bottom: 60px;
+    }
+    
+    form label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    form input[type="text"],
+    form input[type="password"],
+    form input[type="file"],
+    form input[type="url"],
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+</style>
+</head>
+
+<body>
+
+  header> 
+      <a href="homepage.html"><h2>UCH</h2></a>
+  </header>
+
+  <div id="signup">
+    <h2>Sign Up</h2>
+  </div>
+
+<!-- First Part: Email/Phone and Password -->
+  
+  <div>
+    <form id="first-part" action="#" method="post">
+    <h3>Login Credentials</h3>
+    <label for="email_phone">Email/ Phone Number:</label><br>
+    <input type="text" id="email_phone" name="email_phone" required><br><br>
+    
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+    
+    <label for="confirm_password">Confirm Password:</label><br>
+    <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+    
+    <div class="buttondiv">
+      <input type="button" value="Next" onclick="showNextPart('second-part')" class="button">
+    </div>
+  </form>
+  </div>
+
+<!-- Second Part: Display Name, Category, Picture, Link, Description -->
+  <div>
+    <form id="second-part" class="signup-part" action="/submit" method="post">
+    <h3>Display Details</h3>
+    <label for="display_name">Display Name:</label><br>
+    <input type="text" id="display_name" name="display_name" required><br><br>
+    
+    <label for="category">Category:</label><br>
+    <select id="category" name="category">
+      <option value="default">Select Here</option>
+      <option value="option1">Clubs/ Societies</option>
+      <option value="option2">Events</option>
+      <option value="option3">Vendor</option>
+      <option value="option4">UWI</option>
+      <option value="other">Other</option>
+    </select><br><br>
+    
+    <label for="picture">Upload Picture:</label><br>
+    <input type="file" id="picture" name="picture" accept="image/*"><br><br>
+    
+    <label for="link">Link:</label><br>
+    <input type="url" id="link" name="link"><br><br>
+    
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+    
+    <div class="buttondiv">
+      <input type="submit" value="Sign Up" class="button">
+    </div>
+  </form>
+  </div>
+</body>
+
+<script>
+  function showNextPart(nextPartId) {
+    document.getElementById('first-part').style.display = 'none';
+    document.getElementById(nextPartId).style.display = 'block';
+  }
+</script>
+</html>
