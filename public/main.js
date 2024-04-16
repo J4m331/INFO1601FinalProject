@@ -1,13 +1,17 @@
 
-function generateQRC(link){
+
+
+function generateQRC(){
     let result = document.querySelector('#QRC');
+    let linkField = document.querySelector('#link-input');
+    let link = linkField.value;
+    console.log(link);
     let img = '';
-    img += `<img src="https://api.qrserver.com/v1/create-qr-code/?data=${link}&amp;size=100x100" alt="" title="" />`;
+    img += `<img src="https://api.qrserver.com/v1/create-qr-code/?data=${link}&amp;size=800x800" alt="" title="" />`;
     //API Link format => API->Data(Link)->size(Pixels)
     //Change pixel size accordingly
     result.innerHTML = img;
 }
-generateQRC("YES");
 
 //The following is the HTML to use the above function
 //<div id="QRC"></div>

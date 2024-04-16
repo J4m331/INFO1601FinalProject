@@ -86,9 +86,12 @@
     <h2>Dashboard</h2>
   </div>
     <div class="image-container">
-        <img src="https://legiit-service.s3.amazonaws.com/73f8891e6e95315ca9d3c3e6226c47a1/6173b646e3f627312285ce2cf48df413.png" alt="Placeholder Image" id="dashboard-image">
+        <div id="QRC"></div>
+        <!--<img src="https://legiit-service.s3.amazonaws.com/73f8891e6e95315ca9d3c3e6226c47a1/6173b646e3f627312285ce2cf48df413.png" alt="Placeholder Image" id="dashboard-image">-->
         <br>
         <input type="file" id="image-upload" accept="image/*">
+        <input type="text" id="link-input" placeholder="Enter Link Here" required>
+        <button class="edit-btn" onclick="generateQRC()">Generate QR code</button>
     </div>
     <div class="description" contenteditable="true" id="dashboard-description">
       <h2>Description</h2>
@@ -103,4 +106,5 @@
 <script>
 
 </script>
+<script src="main.js"></script>
 </html>
