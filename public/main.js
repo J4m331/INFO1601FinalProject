@@ -12,6 +12,7 @@ generateQRC("YES");
 //The following is the HTML to use the above function
 //<div id="QRC"></div>
 
+//routing functions
 async function route(title, url){
     document.title = title;
     let display = document.querySelector('#display');
