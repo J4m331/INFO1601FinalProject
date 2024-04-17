@@ -16,9 +16,14 @@
       align-items: center;
       justify-content: center;
       height: 100%;
+      margin: 0;
     }
 
-  header{
+    h2{
+      color: orangered;
+    }
+
+    header{
       background-color: black;
       display: flex;
       width: 100%;
@@ -53,17 +58,24 @@
       position: relative;
     }
 
-    h2{
-      color: orangered;
-    }
-
     .signup-part {
       display: none;
+    }
+
+    #loginoption{
+      text-align: center;
+      padding: 10px;
+    }
+
+    #loginoption a{
+      text-decoration: none;
+      color: orangered;
     }
 
     h3{
       position: relative;
       text-align: center;
+      margin-bottom:25px;
     }
     
     form {
@@ -72,6 +84,10 @@
       position: relative;
       top: 20px;
       margin-bottom: 60px;
+    }
+
+    form .buttondiv{
+      margin: 10px;
     }
     
     form label {
@@ -91,12 +107,71 @@
       box-sizing: border-box;
     }
 
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 43, 0.9);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.2);
+  z-index: 9999;
+  width: 70%;
+  height: 70%;
+  text-align: center;
+}
+
+.popup-content {
+  margin: 0 auto; /* Center horizontally */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content h2{
+  padding: 0;
+  margin: 0;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 9998;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.buttondiv {
+  text-align: center;
+}
+
 </style>
 </head>
 
 <body>
-
-  header> 
+  <header> 
       <a href="homepage.html"><h2>UCH</h2></a>
   </header>
 
@@ -109,8 +184,8 @@
   <div>
     <form id="first-part" action="#" method="post">
     <h3>Login Credentials</h3>
-    <label for="email_phone">Email/ Phone Number:</label><br>
-    <input type="text" id="email_phone" name="email_phone" required><br><br>
+    <label for="email_phone">Username:</label><br>
+    <input type="text" id="username" name="Username" required><br><br>
     
     <label for="password">Password:</label><br>
     <input type="password" id="password" name="password" required><br><br>
@@ -119,9 +194,14 @@
     <input type="password" id="confirm_password" name="confirm_password" required><br><br>
     
     <div class="buttondiv">
-      <input type="button" id="Next" value="Next" onclick="showNextPart('second-part')" class="button">
+      <input type="button" value="Cancel" onclick="goToHomepage()" class="button">
+      <input type="button" value="Next" onclick="showNextPart('second-part')" class="button">
     </div>
 
+    <div id="loginoption">
+      <p>Already Have an Account? 
+        <a href="#" onclick="openLoginPopup()">Login instead.</a></p>
+    </div>
   </form>
   </div>
 
@@ -152,10 +232,29 @@
     <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
     
     <div class="buttondiv">
+      <input type="button" value="Back" onclick="goBack()" class="button">
       <input type="submit" value="Sign Up" class="button">
     </div>
   </form>
   </div>
+
+  <div id="loginPopup" class="popup">
+  <div class="popup-content">
+    <h2>Login</h2>
+    <form id="loginForm" action="#" method="post">
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username" required><br><br>
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" required><br><br>
+      <div class="buttondiv">
+        <button type="button" onclick="closeLoginPopup()" class="button">Cancel</button>
+        <button type="submit" class="button">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="overlay" class="overlay"></div>
 </body>
 
 <script>
@@ -163,6 +262,24 @@
     document.getElementById('first-part').style.display = 'none';
     document.getElementById(nextPartId).style.display = 'block';
   }
+
+  function goToHomepage() {
+    window.location.href = "homepage.html";
+  }
+
+  function goBack() {
+  document.getElementById('second-part').style.display = 'none';
+  document.getElementById('first-part').style.display = 'block';
+}
+
+function openLoginPopup() {
+  document.getElementById("loginPopup").style.display = "block";
+  document.getElementById("overlay").style.display = "block";
+}
+
+function closeLoginPopup() {
+  document.getElementById("loginPopup").style.display = "none";
+  document.getElementById("overlay").style.display = "none";
+}
 </script>
-<script src="SignUp.js"></script>
 </html>
