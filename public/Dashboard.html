@@ -34,29 +34,55 @@
     }
 
     .container {
-        max-width: 800px;
-        margin: 20px auto;
-        padding: 20px;
+        margin-bottom: 40px;
         border-radius: 5px;
         text-align: center;
-        max-width: 70%;
+        max-width: 100%;
         max-height: 70%;
     }
     .image-container {
-        text-align: center;
-        margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+      }
+
+    .qrpic,
+    .pfp {
     }
+
+    .dashboardpics{
+      height: 250px;
+      width: 250px;
+      margin: 10px;
+      overflow: hidden;
+      background-color: white;
+    }
+
     img {
-        max-width: 40%;
-        height: 40%;
-        position: relative;
-        text-align: center;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
-    .description {
+
+    .description{
         padding: 10px;
         border-radius: 5px;
         margin-bottom: 20px;
+        text-align: center;
     }
+
+    #dashboard-description{
+      max-width: 80%;
+      align-items: center;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    #dashboard-description h2{
+      text-align: center;
+    }
+
     .edit-btn {
         background-color: orangered;
         color: black;
@@ -73,6 +99,28 @@
             color: white;
     }
 
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      width: 150px; /* Adjust width as needed */
+      margin-right: 10px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      flex: 1;
+      padding: 5px;
+      width: 200px;
+    }
+
+    #image-upload{
+      margin: 20px;
+    }
+
 </style>
 </head>
 
@@ -82,23 +130,44 @@
   </header>
 
 <div class="container">
-  <div id="Dashboard">
+  <div>
     <h2>Dashboard</h2>
   </div>
     <div class="image-container">
-        <div id="QRC"></div>
-        <!--<img src="https://legiit-service.s3.amazonaws.com/73f8891e6e95315ca9d3c3e6226c47a1/6173b646e3f627312285ce2cf48df413.png" alt="Placeholder Image" id="dashboard-image">-->
+      <div class="qrpic">
+        <div class="dashboardpics">
+          <img src="https://legiit-service.s3.amazonaws.com/73f8891e6e95315ca9d3c3e6226c47a1/6173b646e3f627312285ce2cf48df413.png" alt="Placeholder Image" id="qr-image">
+        </div>
+      </div>
+
+        <div class="pfp">
+          <div class="dashboardpics">
+            <img src="https://sat02pap003files.storage.live.com/y4mNa0KPfoF0Nsy709lo9IIYPxMUZkXqW634a_q1zI47sZBDkjYyY_UrGyDIAdHCEhdk3Ob-UMZhBGnAaqLIfAPTFQmYrUy1oLmQpjVrQ23GNp4MMZ9NbxaLyFsj0kt4-J2zR-OnIkyuUB5B2EbLk3QvQ09pjHZhuIkgBG29en9NhiZc07FQh33t2QA5Qtblo3gxowqCoetxvuZdIfONb5GzMpp-m-Duz_uCHNQq6Kso2k?encodeFailures=1&width=539&height=809" alt="Placeholder Image" id="dashboard-image">          
+          </div>
+          <input type="file" id="image-upload" accept="image/*">
+        </div>
         <br>
-        <input type="file" id="image-upload" accept="image/*">
-        <input type="text" id="link-input" placeholder="Enter Link Here" required>
-        <button class="edit-btn" onclick="generateQRC()">Generate QR code</button>
     </div>
-    <div class="description" contenteditable="true" id="dashboard-description">
-      <h2>Description</h2>
-      <p>Description Here...</p>
+
+    <div class="description" id="dashboard-description">
+      <h2>Display Name</h2>
+      <form id="editable-form">
+        <div class="form-group">
+          <label for="display-name">Display Name:</label>
+          <input type="text" id="display-name" name="display-name" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" rows="4" cols="50" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="link">Link:</label>
+          <input type="url" id="link" name="link">
+        </div>
+      </form>
     </div>
-    <button class="edit-btn" onclick="saveChanges()">Save</button>
-    <button class="edit-btn" onclick="resetChanges()">Reset</button>
+<button class="edit-btn" onclick="saveChanges()">Save</button>
+<button class="edit-btn" onclick="resetChanges()">Reset</button>
 </div>
 
 </body>
@@ -106,5 +175,4 @@
 <script>
 
 </script>
-<script src="main.js"></script>
 </html>
