@@ -238,12 +238,23 @@
       }
 
     @media (max-width: 600px){
-      .recommendedTile {
-        max-width: 100px;
-        height: 150px;
-        max-height: 150px;
-        border-radius: 5px;
+      .allrectiles {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Ensures equal spacing between tiles */
       }
+  
+    .recommendedTile {
+        max-width: calc(33.33% - 30px); /* 30px is the total margin space */
+        height: 120px;
+        max-height: 120px;
+        margin: 0 5px 20px 5px; /* Adjusted margin */
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+        flex: 0 0 calc(33.33% - 30px); /* Adjusted flex property */
+      }
+  }
 
     </style>
 </head>
