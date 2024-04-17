@@ -237,24 +237,24 @@
           z-index: 9998;
       }
 
-    @media (max-width: 700px){
-      .allrectiles {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between; /* Ensures equal spacing between tiles */
+    @media (max-width: 600px) {
+        .allrectiles {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between; /* Ensure equal spacing between tiles */
+        }
+      
+        .recommendedTile {
+          max-width: calc(50% - 10px); /* 10px accounts for the total horizontal margins (5px on each side) */
+          height: 120px;
+          max-height: 120px;
+          margin: 0 5px 20px 5px; /* Adjusted margin */
+          border-radius: 15px;
+          position: relative;
+          overflow: hidden;
+          flex: 0 0 calc(50% - 10px); /* Adjusted flex property */
+        }
       }
-  
-    .recommendedTile {
-        max-width: calc(35% - 10px); /* 30px is the total margin space */
-        height: 200px;
-        max-height: 200px;
-        margin: 0 5px 20px 5px; /* Adjusted margin */
-        border-radius: 5px;
-        position: relative;
-        overflow: hidden;
-        flex: 0 0 calc(33.33% - 30px); /* Adjusted flex property */
-      }
-  }
 
     </style>
 </head>
