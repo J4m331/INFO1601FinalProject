@@ -1,24 +1,23 @@
 import {firebaseConfig} from "./firebaseConfig";
-import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, signOut , createUserWithEmailAndPassword} from "firebase/auth";
+import { getAuth,signInWithPopup,GoogleAuthProvider } from "firebase/auth";
 
 const email_text = document.querySelector('#email_phone');
 const pass_text = document.querySelector('#password');
 
-const email = email_text.value;
-const pass = pass_text.value;
+const Login = document.querySelector('#Google');
 
 const auth = getAuth();
+const provider = GoogleAuthProvider();
 
-function createUser(email, pass){
-    createUserWithEmailAndPassword(auth,email,pass)
-        .then((userCredential) =>{
-            const user = userCredential.user;
-            console.log("User made success");
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log("User not made");
-        });
+function handleGoogleLogin() {
+    signInWithPopup(auth, provider)
+    .then((result) => {
+        // Handle successful Google sign-in logic here
+        // (e.g., access user info, redirect to another page)
+    })
+    .catch((error) => {
+        // Handle errors during Google sign-in
+    });
 }
+
+Login.addEventListener('click', handleGoogleLogin);

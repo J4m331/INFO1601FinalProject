@@ -200,7 +200,8 @@
     <input type="password" id="confirm_password" name="confirm_password" required><br><br>
     
     <div class="buttondiv">
-      <input type="button" value="Cancel" onclick="goToHomepage()" class="button">
+      <input type="button" value="Cancel" onclick="goToHomepage()"" class="button">
+      <input type="button" value="Google" class="button" id="Google">
       <input type="button" value="Next" onclick="showNextPart('second-part')" class="button">
     </div>
 
@@ -288,5 +289,5 @@ function closeLoginPopup() {
   document.getElementById("overlay").style.display = "none";
 }
 </script>
-<script src="./auth.js"></script>
+<script type="module" src="./auth.js"></script>
 </html>
