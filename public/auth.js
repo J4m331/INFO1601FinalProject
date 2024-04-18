@@ -22,5 +22,3 @@ function createUser(email, pass){
             console.log("User not made");
         });
 }
-
-export {auth, createUser};
