@@ -13,27 +13,17 @@ const provider = new GoogleAuthProvider();
 async function handleGoogleLogin() {
     signInWithPopup(auth, provider)
     .then((result) => {
-
       // Handle successful Google sign-in logic here
-
       // (e.g., access user info, redirect to another page)
-
       const user = result.user;
-
       console.log(user);
-
       // Redirect to another page
-
       window.location.href = "home.html";
     })
     .catch((error) => {
-    
       // Handle errors during Google sign-in
-
       const errorCode = error.code;
-
       const errorMessage = error.message;
-
       console.error(errorCode, errorMessage);
     });
 }

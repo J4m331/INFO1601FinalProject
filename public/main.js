@@ -1,4 +1,6 @@
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+import { getFirestore, collection, getDoc, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+import firebaseConfig from "./firebaseConfig.js";
 
 
 function generateQRC(){
@@ -35,3 +37,26 @@ function getClick(event){
     let url = site.href;
     route(text,url);
 }
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+console.log(db);
+
+
+async function getdata()
+{
+    console.log("Testing");
+    const citiesCol = collection(db, 'database');  //calling the database
+    const citySnapshot = await getDocs(citiesCol); //getting the data from database
+    const cityList = citySnapshot.docs.map(doc => doc.data()); /// doing a map and get the data from it. 
+    return cityList;
+}
+
+async function senddata()
+{
+    
+}
+//database for the files
+//henry - the let array is the json file
+let array = await getdata();
+console.log(array);
