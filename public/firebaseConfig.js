@@ -1,13 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyA87-nIxYFgez-XGJZRdESZiI4rA2MEk3g",
-  authDomain: "info-1600.firebaseapp.com",
-  databaseURL: "https://info-1600-default-rtdb.firebaseio.com",
-  projectId: "info-1600",
-  storageBucket: "info-1600.appspot.com",
-  messagingSenderId: "188638287302",
-  appId: "1:188638287302:web:b8cdd1830a944fcf230ec7",
-  measurementId: "G-SHBVDX0SN3"
+  apiKey: "AIzaSyA-5TI2nM6J0nTiV5vIGvxSPHkPfA51Q5o",
+  authDomain: "uwicentralhub-f5cf4.firebaseapp.com",
+  projectId: "uwicentralhub-f5cf4",
+  storageBucket: "uwicentralhub-f5cf4.appspot.com",
+  messagingSenderId: "351960244221",
+  appId: "1:351960244221:web:60197735aadec87ffdc394",
+  measurementId: "G-K7KHHT09R4"
+};
 
-  };
- 
 export default firebaseConfig
