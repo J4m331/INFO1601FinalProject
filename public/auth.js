@@ -1,5 +1,6 @@
+import { initializeApp } from "firebase/app";
 import firebaseConfig from "./firebaseConfig";
-import { getAuth, RecaptchaVerifier, signInWithPhoneNumber, signInAnonymously } from "firebase/auth";
+import { getAuth,signInWithPopup,GoogleAuthProvider,signInAnonymously } from "firebase/auth";
 
 const email_text = document.querySelector('#email_phone');
 const pass_text = document.querySelector('#password');
@@ -7,44 +8,28 @@ const pass_text = document.querySelector('#password');
 const Login = document.querySelector('#Google');
 
 const auth = getAuth();
+const provider = new GoogleAuthProvider();
 
-window.recaptchaVerifier = new RecaptchaVerifier(auth, 'sign-in-button', {
-  'size': 'invisible',
-  'callback': (response) => {
-    // reCAPTCHA solved, allow signInWithPhoneNumber.
-    onSignInSubmit();
-  }
-});
-
-async function AnonymousLogin(){
-    signInAnonymously(auth)
-    .then(() => {
-      console.log("Signed IN Anon");
+async function handleGoogleLogin() {
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      // Handle successful Google sign-in logic here
+      // (e.g., access user info, redirect to another page)
+      const user = result.user;
+      console.log(user);
+      // Redirect to another page
+      window.location.href = "home.html";
     })
-    .catch(() =>{
-      console.log("NotSignedIn Anon");
-    })
+    .catch((error) => {
+      // Handle errors during Google sign-in
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.error(errorCode, errorMessage);
+    });
 }
 
-Login.addEventListener('click', AnonymousLogin);
-async function AnonymousLogin(){
-  signInAnonymously(auth)
-  .then(() => {
-    console.log("Signed IN Anon");
-  })
-  .catch(() =>{
-    console.log("NotSignedIn Anon");
-  })
+function AnonymousLogin(){
+
 }
 
-Login.addEventListener('click', AnonymousLogin);async function AnonymousLogin(){
-    signInAnonymously(auth)
-    .then(() => {
-      console.log("Signed IN Anon");
-    })
-    .catch(() =>{
-      console.log("NotSignedIn Anon");
-    })
-}
-
-Login.addEventListener('click', AnonymousLogin);
+Login.addEventListener('click', handleGoogleLogin);

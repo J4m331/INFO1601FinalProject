@@ -189,10 +189,25 @@
   
   <div>
     <form id="first-part" action="#" method="post">
-    <h3>You Are signing up at your own risk</h3>
+    <h3>Login Credentials</h3>
+    <label for="email_phone">Username:</label><br>
+    <input type="text" id="username" name="Username" required><br><br>
+    
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+    
+    <label for="confirm_password">Confirm Password:</label><br>
+    <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+    
     <div class="buttondiv">
-      <input type="button" value="Cancel" onclick="goToHomepage()" class="button">
+      <input type="button" value="Cancel" onclick="goToHomepage()"" class="button">
+      <input type="button" value="Google" class="button" id="Google">
       <input type="button" value="Next" onclick="showNextPart('second-part')" class="button">
+    </div>
+
+    <div id="loginoption">
+      <p>Already Have an Account? 
+        <a href="#" onclick="openLoginPopup()">Login instead.</a></p>
     </div>
   </form>
   </div>
@@ -202,23 +217,20 @@
     <form id="second-part" class="signup-part" action="/submit" method="post">
     <h3>Display Details</h3>
     <label for="display_name">Display Name:</label><br>
-    <input type="text" id="display_name" name="Name" required><br><br>
+    <input type="text" id="display_name" name="display_name" required><br><br>
     
     <label for="category">Category:</label><br>
-    <select id="Category" name="Category">
+    <select id="category" name="category">
       <option value="default">Select Here</option>
       <option value="option1">Clubs/ Societies</option>
-      <option value="Events">Events</option>
-      <option value="Vendor">Vendor</option>
-      <option value="UWI">UWI</option>
+      <option value="option2">Events</option>
+      <option value="option3">Vendor</option>
+      <option value="option4">UWI</option>
       <option value="other">Other</option>
     </select><br><br>
     
-    <!-- <label for="picture">Upload Picture:</label><br>
-    <input type="file" id="picture" name="picture" accept="image/*"><br><br> -->
-
-    <label for="link">Image URL:</label><br>
-    <input type="url" id="picture" name="picture"><br><br>
+    <label for="picture">Upload Picture:</label><br>
+    <input type="file" id="picture" name="picture" accept="image/*"><br><br>
     
     <label for="link">Link:</label><br>
     <input type="url" id="link" name="link"><br><br>
@@ -232,6 +244,20 @@
     </div>
   </form>
   </div>
+
+  <div id="loginPopup" class="popup">
+  <div class="popup-content">
+    <h2>Login</h2>
+    <form id="loginForm" action="#" method="post">
+      <label for="username">Username:</label><br>
+      <input type="text" id="username" name="username" required><br><br>
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" required><br><br>
+      <div class="buttondiv">
+        <button type="button" onclick="closeLoginPopup()" class="button">Cancel</button>
+        <button type="submit" class="button">Submit</button>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -263,6 +289,7 @@ function closeLoginPopup() {
   document.getElementById("overlay").style.display = "none";
 }
 </script>
+<<<<<<< HEAD
 
 <script type ="module">
   import { writedata } from './sending.js';
@@ -283,4 +310,7 @@ async function callbackFunction(event) {
 
 </script>
 <script src="./auth.js"></script>
+=======
+<script type="module" src="./auth.js"></script>
+>>>>>>> parent of 47c08d5 (signup, auth, db integration)
 </html>
