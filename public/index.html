@@ -1,426 +1,479 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8"><meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UWI Central Hub</title>
-  <link rel="stylesheet" type="text/css" href="mainScheme.css">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
 
-  <!-- update the version number as needed -->
-  <script defer src="/__/firebase/10.10.0/firebase-app-compat.js"></script>
-  <!-- include only the Firebase features as you need -->
-  <script defer src="/__/firebase/10.10.0/firebase-auth-compat.js"></script>
-  <script defer src="/__/firebase/10.10.0/firebase-database-compat.js"></script>
-  <script defer src="/__/firebase/10.10.0/firebase-firestore-compat.js"></script>
-  <script defer src="/__/firebase/10.10.0/firebase-functions-compat.js"></script>
-  <script defer src="/__/firebase/10.10.0/firebase-messaging-compat.js"></script>
-  <script defer src="/__/firebase/10.10.0/firebase-storage-compat.js"></script>
-  <script defer src="/__/firebase/10.10.0/firebase-analytics-compat.js"></script>
-  <script defer src="/__/firebase/10.10.0/firebase-remote-config-compat.js"></script>
-  <script defer src="/__/firebase/10.10.0/firebase-performance-compat.js"></script>
-  <!-- 
-    initialize the SDK after all desired features are loaded, set useEmulator to false
-    to avoid connecting the SDK to running emulators.
-  -->
-  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/10.11.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/10.11.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/10.11.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/10.11.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/10.11.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/10.11.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/10.11.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/10.11.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/10.11.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/10.11.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-  <style>
+    <style>
 
-    h2{
-      font-family: verdana;
-      color: orangered;
-    }
-
-    p{
-      font-family: verdana;
-      color:white;
-    }
-
-    body{
-      background-color: #00002B;
-      margin: 0; /* Reset default margin */
-      padding: 0; /* Reset default padding */
-      color: white;
-      font-family: verdana;
-    }
-
-    header{
-      background-color: black;
-      display: flex;
-      justify-content: space-between;
-      align-items: center; /* Add padding for better spacing */
-      box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.1);
-    }
-
-    header h2{
-      margin-left: 20px;
-    }
-
-    header button {
-      margin-right: 20px;
-      background-color: orangered;
-      color: black;
-      font-family: verdana;
-      font-size: 16px;
-      width: 100px;
-      height: 30px;
-      border-radius: 7px;
-    }
-
-    #Welcome {
-      position: relative;
-      text-align: center;
-      max-width: 100vw;
-      max-height: 100vh;
-      overflow: hidden;
-    }
-
-    #wlcimg {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      text-align: center;
-      justify-content: center;
-    }
-
-    #wlcimg img{
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-    }
-
-    #wlcgradient {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to top, 
-          rgba(0, 0, 43, 1) 0%,
-          rgba(0, 7, 47, 0.8) 20%,
-          rgba(0, 13, 50, 0.4) 50%,
-          rgba(0, 20, 51, 0.2) 80%,
-          rgba(0, 26, 51, 0.1) 100%);
-        z-index: 0;
-    }
-
-    #wlctxt {
-      position: absolute;
-      left: 50%;
-      bottom: 0%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      padding: 0;
-      margin: 0;
-    }
-
-    #wlctxt h2{
-      font-size: 50px;
-      font-weight: bolder;
-      color: white;
-      padding:0;
-      margin: 0;
-    }
-
-
-    #wlctxt button{
-      background-color: orangered;
-      color: black;
-      font-family: verdana;
-      font-size: 16px;
-      width: 200px;
-      height: 40px;
-      border-radius: 7px;
-    }
-
-    .recommended{
-      height: fit-content;
-    }
-
-    .recommended #Recc h3, .recommended #Recc p {
-      display: inline-block;
-      margin: 20px; /* Optionally, reset any default margins */
-    }
-
-    #Recc {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-
-    #Recc h3, #Recc p {
-      margin: 10px;
-    }
-
-    .SeeMore{
-      font-size: 30px;
-      margin: 0;
-    }
-
-    .allrectiles{
-    display: flex;
-    flex-wrap: wrap;
-    }
-
-    .recommended h3{
-      position: relative;
-      margin-left: 20px;
-    }
-
-      .recommendedTile {
-        max-width: 250px;
-        height: 300px;
-        max-height: 300px;
-        margin: 0 15px 20px 15px;
-        border-radius: 15px;
+      h2{
+        font-family: verdana;
+        color: orangered;
+      }
+  
+      p{
+        font-family: verdana;
+        color:white;
+      }
+  
+      body{
+        background-color: #00002B;
+        margin: 0; /* Reset default margin */
+        padding: 0; /* Reset default padding */
+        color: white;
+        font-family: verdana;
+      }
+  
+      header{
+        background-color: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; /* Add padding for better spacing */
+        box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.1);
+      }
+  
+      header h2{
+        margin-left: 20px;
+      }
+  
+      header button {
+        margin-right: 20px;
+        background-color: orangered;
+        color: black;
+        font-family: verdana;
+        font-size: 16px;
+        width: 100px;
+        height: 30px;
+        border-radius: 7px;
+      }
+  
+      #Welcome {
         position: relative;
+        text-align: center;
+        max-width: 100vw;
+        max-height: 100vh;
         overflow: hidden;
-        flex: 50%;
       }
-
-      .recommendedTile img {
-        width: 100%;
-        height: 100%;
-        max-width: 100%;
-        max-width: 100%;
+  
+      #wlcimg {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
         object-fit: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
+        text-align: center;
+        justify-content: center;
       }
-
-      .tilegradient{
+  
+      #wlcimg img{
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+      }
+  
+      #wlcgradient {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(to top,
-        rgba(0, 0, 43, 0.8) 0%,
-        rgba(0, 7, 47, 0.7) 12%,
-        rgba(0, 13, 50, 0.5) 25%,
-        rgba(0, 20, 51, 0.2) 37%,
-        rgba(0, 26, 51, 0.1) 50%);
-        z-index: 0;
+        background: linear-gradient(to top, 
+            rgba(0, 0, 43, 1) 0%,
+            rgba(0, 7, 47, 0.8) 20%,
+            rgba(0, 13, 50, 0.4) 50%,
+            rgba(0, 20, 51, 0.2) 80%,
+            rgba(0, 26, 51, 0.1) 100%);
+          z-index: 0;
       }
-
-      .tiletxt{
-      position: absolute;
-      bottom: 10px;
-      z-index: 1;
-      padding: 0;
-      margin: 0;
+  
+      #wlctxt {
+        position: absolute;
+        left: 50%;
+        bottom: 0%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        padding: 15px;
+  
+        text-align: center;
       }
-
-      .popup {
-          display: none;
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          background-color: rgba(0, 0, 43, 0.9);
-          padding: 20px;
-          border-radius: 5px;
-          box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.2);
-          z-index: 9999;
-
-
-          width: 70%;
-          height: 70%;
-          text-align: center;
+  
+      #wlctxt h2{
+        font-size: 50px;
+        font-weight: bolder;
+        color: white;
+        padding:0;
+        margin: 0;
       }
-
-      /* Style for the close button */
-      .close {
-          position: absolute;
-          top: 10px;
-          right: 15px;
-          cursor: pointer;
-          font-size: 30px;
-          color: orangered;
+  
+  
+      #wlctxt button{
+        background-color: orangered;
+        color: black;
+        font-family: verdana;
+        font-size: 16px;
+        width: 200px;
+        height: 40px;
+        border-radius: 7px;
       }
-
-      /* Style for the overlay */
-      .overlay {
-          display: none;
-          position: fixed;
-          width: 100%;
-          height: 100%;
-          top: 0;
-          left: 0;
-          background-color: rgba(0,0,0,0.5);
-          z-index: 9998;
+  
+      .recommended{
+        height: fit-content;
       }
-
-    @media (max-width: 600px) {
-        .allrectiles {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between; /* Ensure equal spacing between tiles */
-        }
-
+  
+      .recommended #Recc h3, .recommended #Recc p {
+        display: inline-block;
+        margin: 20px; /* Optionally, reset any default margins */
+      }
+  
+      #Recc {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+  
+      #Recc h3 {
+        margin: 10px;
+      }
+  
+      #Recc p{
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+      }
+  
+      .SeeMore{
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+      }
+  
+  
+      .allrectiles{
+      display: flex;
+      flex-wrap: wrap;
+      }
+  
+      .recommended h3{
+        position: relative;
+        margin-left: 20px;
+      }
+  
         .recommendedTile {
-          max-width: calc(50% - 10px); /* 10px accounts for the total horizontal margins (5px on each side) */
-          height: 250px;
-          max-height: 250px;
-          margin: 0 5px 20px 5px; /* Adjusted margin */
+          max-width: 250px;
+          height: 300px;
+          max-height: 300px;
+          margin: 0 15px 20px 15px;
           border-radius: 15px;
           position: relative;
           overflow: hidden;
-          flex: 0 0 calc(50% - 10px); /* Adjusted flex property */
+          flex: 50%;
         }
-      }
-    </style>
-</head>
-
-<body>
-  <header> 
-    <h2>UCH</h2>
-    <a href="SignUp.html"><button> Sign Up</button></a>
-  </header>
-
-  <div id="Welcome">
-    <div id="wlcimg">
-      <img src="https://sat02pap003files.storage.live.com/y4m9nv7MrFzylFH9LmaT3_0ukkGjtC8pN-b43sJGPdI1VneiExCxIQomZ8pBLcmTwRLNsrkEVYIupYW-c3gH-tJNgrauk4S7hUb6zqgSGyLYeY7a3xlUU4Q8tIvbbhqbErT6jx-mzshguPcpO3MLJwyuH3jU5_Ud6JpoY6UGe-dEWdMap2VqZIdApUfd1jOxbIai0kDh8hLUp0jhzncX48gikOaGB4xNv7LS6XiALOsAhI?encodeFailures=1&width=1906&height=809">
-      <div id="wlcgradient"></div>
+  
+        .recommendedTile img {
+          width: 100%;
+          height: 100%;
+          max-width: 100%;
+          max-width: 100%;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+  
+        .tilegradient{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to top,
+          rgba(0, 0, 43, 0.8) 0%,
+          rgba(0, 7, 47, 0.7) 12%,
+          rgba(0, 13, 50, 0.5) 25%,
+          rgba(0, 20, 51, 0.2) 37%,
+          rgba(0, 26, 51, 0.1) 50%);
+          z-index: 0;
+        }
+  
+        .tiletxt{
+        position: absolute;
+        bottom: 10px;
+        z-index: 1;
+        padding: 0;
+        margin: 0;
+        }
+  
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 43, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.2);
+            z-index: 9999;
+  
+  
+            width: 70%;
+            height: 70%;
+            text-align: center;
+        }
+  
+        /* Style for the close button */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 30px;
+            color: orangered;
+        }
+  
+        /* Style for the overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 9998;
+        }
+  
+        @media (max-width: 600px) {
+          .allrectiles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Ensure equal spacing between tiles */
+          }
+  
+          .recommendedTile {
+            max-width: calc(50% - 10px); /* 10px accounts for the total horizontal margins (5px on each side) */
+            height: 250px;
+            max-height: 250px;
+            margin: 0 5px 20px 5px; /* Adjusted margin */
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            flex: 0 0 calc(50% - 10px); /* Adjusted flex property */
+          }
+        }
+      </style>
+  </head>
+  
+  <body>
+    <header> 
+      <h2>UCH</h2>
+      <div id="userbuttons">
+        <span id="user"></span>
+          <button id="logoutBtn">
+              Logout
+          </button>
+          <button id="loginBtn">
+            Login
+          </button>
+      </div>  
+    </header>
+  
+    <div id="Welcome">
+      <div id="wlcimg">
+        <img src="UWIWall.jpg">
+        <div id="wlcgradient"></div>
+      </div>
+      <div id="wlctxt">
+        <p>Welcome to</p>
+        <h2>UWI Central HUB</h2>
+        <p> All Things UWI</p>
+        <a href="signup.html"> <button>Join for Free</button> </a>
+      </div>
     </div>
-    <div id="wlctxt">
-      <p>Welcome to</p>
-      <h2>UWI Central HUB</h2>
-      <p> All Things UWI</p>
-      <a href="SignUp.html"> <button>Join for Free</button> </a>
+  
+    <div class="recommended">
+      <div id="Recc">
+        <h3>Recommended</h3>
+        <p>See more</p>
+        <span class="SeeMore">&#8594;</span>
+  
+      </div>
+  
+      <div class="allrectiles">
+  
+        <div class="recommendedTile" data-title="UCH" data-description="Description for UCH" onclick="openPopup(this)">
+          <span class="close" onclick="closePopup()">&times;</span>
+          <img src="UWIWall.jpg">
+  
+          <div class="tilegradient"></div>
+  
+          <div class="tiletxt">
+          <h3>UCH</h3>
+          </div>
+  
+        </div>
+  
+        <div class="recommendedTile" data-title="Campus Map" data-description="What The Hell" onclick="openPopup(this)">
+          <span class="close" onclick="closePopup()">&times;</span>
+          <img src="UWIWall.jpg">
+  
+          <div class="tilegradient"></div>
+  
+          <div class="tiletxt">
+          <h3>Campus Map</h3>
+          </div>
+  
+        </div>
+  
+        <div class="recommendedTile" data-title="Idek" data-description="What the title said" onclick="openPopup(this)">
+          <span class="close" onclick="closePopup()">&times;</span>
+          <img src="UWIWall.jpg">
+  
+          <div class="tilegradient"></div>
+  
+          <div class="tiletxt">
+          <h3>Idek</h3>
+          </div>
+  
+        </div>
+        
+      </div>
+  
+      <div id="popup" class="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <img src="https://legiit-service.s3.amazonaws.com/73f8891e6e95315ca9d3c3e6226c47a1/6173b646e3f627312285ce2cf48df413.png" alt="Image" style="max-height: 60%;">
+        <h2 id="popupTitle">Display Name</h2>
+        <p id="popupDescription">Description goes here...</p>
     </div>
-  </div>
-
-  <div class="recommended">
-    <div id="Recc">
-      <h3>Recommended</h3>
-      <p>See More</p>
-      <span class="SeeMore">&#8594;</span>
-
+  
     </div>
-
-    <div class="allrectiles" id="recom">
-      <!-- tile start here -->
-     
-       <!-- and ends here -->
-    </div>
-   
-  </div>
-
-  <div class="recommended">
-    <div id="Recc">
-      <h3>Clubs & Sports</h3>
-      <p>See More</p>
-      <span class="SeeMore">&#8594;</span>
-
-    </div>
-
-    <div class="allrectiles" id="sport">
-      <!-- tile start here -->
-     
-       <!-- and ends here -->
-    </div>
-   
-  </div>
-
-  <div class="recommended">
-    <div id="Recc">
-      <h3>Food Places</h3>
-      <p>See More</p>
-      <span class="SeeMore">&#8594;</span>
-
-    </div>
-
-    <div class="allrectiles" id="foods">
-      <!-- tile start here -->
-     
-       <!-- and ends here -->
-    </div>
-   
-  </div>
-
-  <div class="recommended">
-    <div id="Recc">
-      <h3>UWI Facilites</h3>
-      <p>See More</p>
-      <span class="SeeMore">&#8594;</span>
-
-    </div>
-
-    <div class="allrectiles" id="UWI">
-      <!-- tile start here -->
-     
-       
-      <!-- and ends here -->
-    </div>
-   
-  </div>
-
-  <div id="popup" class="popup">
-    <span class="close" onclick="closePopup()">&times;</span>
-    <img src="https://legiit-service.s3.amazonaws.com/73f8891e6e95315ca9d3c3e6226c47a1/6173b646e3f627312285ce2cf48df413.png" alt="Image" style="max-height: 60%;">
-    <h2>Display Name</h2>
-    <p>Description goes here...</p>
-  </div>
-
-  <!-- The overlay -->
-  <div id="overlay" class="overlay"></div>
-
-</body>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const loadEl = document.querySelector('#load');
-    // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-    // // The Firebase SDK is initialized and available here!
-    //
-    // firebase.auth().onAuthStateChanged(user => { });
-    // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-    // firebase.firestore().doc('/foo/bar').get().then(() => { });
-    // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-    // firebase.messaging().requestPermission().then(() => { });
-    // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-    // firebase.analytics(); // call to activate
-    // firebase.analytics().logEvent('tutorial_completed');
-    // firebase.performance(); // call to activate
-    //
-    // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
-    try {
-      let app = firebase.app();
-      let features = [
-        'auth', 
-        'database', 
-        'firestore',
-        'functions',
-        'messaging', 
-        'storage', 
-        'analytics', 
-        'remoteConfig',
-        'performance',
-      ].filter(feature => typeof app[feature] === 'function');
-      loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-    } catch (e) {
-      console.error(e);
-      loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-    }
-  });
-</script>
-
-<script>
-
-  function openPopup() {
-      document.getElementById("popup").style.display = "block";
-      document.getElementById("overlay").style.display = "block";
-  }
-
-  function closePopup() {
-      document.getElementById("popup").style.display = "none";
-      document.getElementById("overlay").style.display = "none";
+  
+    <!-- The overlay -->
+    <div id="overlay" class="overlay" onclick="closePopup()"></div>
+  
+  </body>
+  
+  <script type="module">
+  import { signIn, logout, auth, setAuthListeners } from './auth.js';
+  
+  let loginBtn = document.querySelector('#loginBtn');
+  let logoutBtn = document.querySelector('#logoutBtn');
+  
+  function showToast(message) {
+      // Create a toast element
+      const toast = document.createElement('div');
+      toast.classList.add('toast');
+      toast.textContent = message;
+  
+      // Append toast to the body
+      document.body.appendChild(toast);
+  
+      // Auto-hide the toast after a short delay
+      setTimeout(() => {
+          toast.remove();
+      }, 3000); // Adjust the delay (in milliseconds) as needed
   }
   
-</script>
-<script src="main.js" type="module"></script>
+  function setLoggedInUI() {
+      showToast('Logged In!');
+      document.querySelector('#user').innerHTML = `Signed in Anonymously`;
+      document.querySelector('#loginBtn').style.display = 'none';
+      document.querySelector('#logoutBtn').style.display = 'inline-block';
+  }
+  
+  function setLoggedOutUI() {
+      showToast('Logged Out!');
+      document.querySelector('#user').innerHTML = '';
+      document.querySelector('#loginBtn').style.display = 'inline-block';
+      document.querySelector('#logoutBtn').style.display = 'none';
+  }
+  
+  // Attach listeners
+  logoutBtn.addEventListener('click', logout);
+  loginBtn.addEventListener('click', signIn);
+  setAuthListeners(setLoggedInUI, setLoggedOutUI);
+  
+  loginBtn.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent form submission
+    signIn();
+  });
+  
+  </script>
+  
+  <script>
+     function openPopup(clickedElement) {
+      // Retrieve data attributes from the clicked tile
+      var title = clickedElement.getAttribute("data-title");
+      var description = clickedElement.getAttribute("data-description");
+      
+      // Populate the popup with data specific to the clicked tile
+      document.getElementById("popup").style.display = "block";
+      document.getElementById("overlay").style.display = "block";
+      document.getElementById("popupTitle").innerText = title;
+      document.getElementById("popupDescription").innerText = description;
+  }
+  
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+    }
+  </script>
+  
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
 </html>
