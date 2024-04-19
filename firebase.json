@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "uwicentralhubsta",
     "public": "public",
     "ignore": [
       "firebase.json",
@@ -19,5 +18,9 @@
       "enabled": true
     },
     "singleProjectMode": true
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
   }
 }
