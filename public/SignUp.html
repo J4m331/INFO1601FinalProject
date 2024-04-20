@@ -198,40 +198,38 @@
   </div>
 
 <!-- Second Part: Display Name, Category, Picture, Link, Description -->
-  <div>
-    <form id="second-part" class="signup-part" action="/submit" method="post">
-    <h3>Display Details</h3>
-    <label for="display_name">Display Name:</label><br>
-    <input type="text" id="display_name" name="Name" required><br><br>
-    
-    <label for="category">Category:</label><br>
-    <select id="Category" name="Category">
-      <option value="default">Select Here</option>
-      <option value="Sports">Clubs/ Societies</option>
-      <option value="Events">Events</option>
-      <option value="Vendor">Vendor</option>
-      <option value="UWI">UWI</option>
-      <option value="other">Other</option>
-    </select><br><br>
-    
-    <!-- <label for="picture">Upload Picture:</label><br>
-    <input type="file" id="picture" name="picture" accept="image/*"><br><br> -->
-
-    <label for="link">Image URL:</label><br>
-    <input type="url" id="picture" name="picture"><br><br>
-    
-    <label for="link">Link:</label><br>
-    <input type="url" id="link" name="link"><br><br>
-    
-    <label for="description">Description:</label><br>
-    <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
-    
-    <div class="buttondiv">
-      <input type="button" value="Back" onclick="goBack()" class="button">
-      <input type="submit" value="Sign Up" class="button">
-    </div>
-  </form>
+<div>
+  <form id="second-part" class="signup-part" action="/submit" method="post">
+  <h2>Add profile</h2>
+  <h3>Display Details</h3>
+  <label for="display_name">Display Name:</label><br>
+  <input type="text" id="display_name" name="display_name" required><br><br>
+  
+  <label for="category">Category:</label><br>
+  <select id="category" name="category">
+    <option value="default">Select Here</option>
+    <option value="clubs">Clubs/ Societies</option>
+    <option value="events">Events</option>
+    <option value="vendor">Vendor</option>
+    <option value="UWI">UWI</option>
+    <option value="other">Other</option>
+  </select><br><br>
+  
+  <label for="link">Image URL:</label><br>
+  <input type="url" id="picture" name="picture"><br><br>
+  
+  <label for="link">Link:</label><br>
+  <input type="url" id="link" name="link"><br><br>
+  
+  <label for="description">Description:</label><br>
+  <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+  
+  <div class="buttondiv">
+    <input type="button" value="Cancel" onclick="goToHomepage()" class="button">
+    <input type="submit" value="Add" class="button">
   </div>
+</form>
+  </div>
   </div>
 </div>
 
