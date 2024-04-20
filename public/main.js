@@ -1,7 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-import { getFirestore, collection, getDoc, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
-import firebaseConfig from "./firebaseConfig.js";
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+import { getFirestore, collection, getDoc, getDocs,addDoc} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+import firebaseConfig from "./firebaseConfig.js";
 
 function generateQRC(){
     let result = document.querySelector('#QRC');
@@ -40,23 +40,131 @@ function getClick(event){
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-console.log(db);
-
 
 async function getdata()
 {
     console.log("Testing");
-    const citiesCol = collection(db, 'database');  //calling the database
+    const citiesCol = collection(db,'database');  //calling the database
     const citySnapshot = await getDocs(citiesCol); //getting the data from database
     const cityList = citySnapshot.docs.map(doc => doc.data()); /// doing a map and get the data from it. 
     return cityList;
 }
 
-async function senddata()
-{
-    
-}
-//database for the files
-//henry - the let array is the json file
+
 let array = await getdata();
-console.log(array);
+
+function content(records)
+{
+    let result =document.querySelector('#recom');
+    let html = '';
+    let x=0;
+    for(let record of records){
+    html+=`
+    <div class="recommendedTile" onclick="openPopup()">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <img src="${records[x].picture}">
+
+    <div class="tilegradient"></div>
+
+      <div class="tiletxt">
+        <h3>${records[x].Name}</h3>
+    </div>
+  </div>
+        `;
+    //}
+    x++;
+    }
+    
+    result.innerHTML =html;
+}
+
+
+function contentfood(records)
+{
+    let result =document.querySelector('#foods');
+    let html = '';
+    for(let record of records)
+    {
+        if(record.Category == "Vendor")
+        {
+            html+=`
+            <div class="recommendedTile" onclick="openPopup()">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <img src="${record.picture}">
+
+            <div class="tilegradient"></div>
+
+            <div class="tiletxt">
+                <h3>${record.Name}</h3>
+            </div>
+        </div>
+                `;
+        }
+            
+    }
+    result.innerHTML =html;
+}
+
+function contentsport(records)
+{
+    let result =document.querySelector('#sport');
+    let html = '';
+    for(let record of records)
+    {
+        if(record.Category == "Sports")
+        {
+            html+=`
+            <div class="recommendedTile" onclick="openPopup()">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <img src="${record.picture}">
+
+            <div class="tilegradient"></div>
+
+            <div class="tiletxt">
+                <h3>${record.Name}</h3>
+            </div>
+        </div>
+                `;
+        }
+            
+    }
+    result.innerHTML =html;
+}
+
+function contentuwi(records)
+{
+    let result =document.querySelector('#UWI');
+    let html = '';
+    for(let record of records)
+    {
+        if(record.Category == "UWI")
+        {
+            html+=`
+            <div class="recommendedTile" onclick="openPopup()">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <img src="${record.picture}">
+
+            <div class="tilegradient"></div>
+
+            <div class="tiletxt">
+                <h3>${record.Name}</h3>
+            </div>
+        </div>
+                `;
+        }
+            
+    }
+    result.innerHTML =html;
+}
+
+contentfood(array);
+contentsport(array);
+contentuwi(array);
+content(array);
+
+
+ 
+
+
+
+

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <title>UWI Central Hub</title>
 
     <!-- update the version number as needed -->
     <script defer src="/__/firebase/10.11.0/firebase-app-compat.js"></script>
@@ -110,9 +110,8 @@
         bottom: 0%;
         transform: translate(-50%, -50%);
         z-index: 1;
-        padding: 15px;
-  
-        text-align: center;
+        padding: 0;
+        margin: 0;
       }
   
       #wlctxt h2{
@@ -149,22 +148,14 @@
         align-items: center;
       }
   
-      #Recc h3 {
+      #Recc h3, #Recc p {
         margin: 10px;
       }
   
-      #Recc p{
-        font-size: 14px;
-        margin: 0;
-        padding: 0;
-      }
-  
       .SeeMore{
-        font-size: 20px;
+        font-size: 30px;
         margin: 0;
-        padding: 0;
       }
-  
   
       .allrectiles{
       display: flex;
@@ -261,7 +252,7 @@
             z-index: 9998;
         }
   
-        @media (max-width: 600px) {
+      @media (max-width: 600px) {
           .allrectiles {
             display: flex;
             flex-wrap: wrap;
@@ -285,157 +276,100 @@
   <body>
     <header> 
       <h2>UCH</h2>
-      <div id="userbuttons">
-        <span id="user"></span>
-          <button id="logoutBtn">
-              Logout
-          </button>
-          <button id="loginBtn">
-            Login
-          </button>
-      </div>  
+      <a href="SignUp.html"><button> Sign Up</button></a>
     </header>
   
     <div id="Welcome">
       <div id="wlcimg">
-        <img src="UWIWall.jpg">
+        <!--
+        <img src="https://sat02pap003files.storage.live.com/y4m9nv7MrFzylFH9LmaT3_0ukkGjtC8pN-b43sJGPdI1VneiExCxIQomZ8pBLcmTwRLNsrkEVYIupYW-c3gH-tJNgrauk4S7hUb6zqgSGyLYeY7a3xlUU4Q8tIvbbhqbErT6jx-mzshguPcpO3MLJwyuH3jU5_Ud6JpoY6UGe-dEWdMap2VqZIdApUfd1jOxbIai0kDh8hLUp0jhzncX48gikOaGB4xNv7LS6XiALOsAhI?encodeFailures=1&width=1906&height=809">
+        -->
+        <img src="./images/UWI_Wall.jpeg">
         <div id="wlcgradient"></div>
       </div>
       <div id="wlctxt">
         <p>Welcome to</p>
         <h2>UWI Central HUB</h2>
         <p> All Things UWI</p>
-        <a href="signup.html"> <button>Join for Free</button> </a>
+        <a href="SignUp.html"> <button>Join for Free</button> </a>
       </div>
     </div>
   
     <div class="recommended">
       <div id="Recc">
         <h3>Recommended</h3>
-        <p>See more</p>
+        <p>See More</p>
         <span class="SeeMore">&#8594;</span>
   
       </div>
   
-      <div class="allrectiles">
+      <div class="allrectiles" id="recom">
+        <!-- tile start here -->
+       
+         <!-- and ends here -->
+      </div>
+     
+    </div>
   
-        <div class="recommendedTile" data-title="UCH" data-description="Description for UCH" onclick="openPopup(this)">
-          <span class="close" onclick="closePopup()">&times;</span>
-          <img src="UWIWall.jpg">
+    <div class="recommended">
+      <div id="Recc">
+        <h3>Clubs & Sports</h3>
+        <p>See More</p>
+        <span class="SeeMore">&#8594;</span>
   
-          <div class="tilegradient"></div>
-  
-          <div class="tiletxt">
-          <h3>UCH</h3>
-          </div>
-  
-        </div>
-  
-        <div class="recommendedTile" data-title="Campus Map" data-description="What The Hell" onclick="openPopup(this)">
-          <span class="close" onclick="closePopup()">&times;</span>
-          <img src="UWIWall.jpg">
-  
-          <div class="tilegradient"></div>
-  
-          <div class="tiletxt">
-          <h3>Campus Map</h3>
-          </div>
-  
-        </div>
-  
-        <div class="recommendedTile" data-title="Idek" data-description="What the title said" onclick="openPopup(this)">
-          <span class="close" onclick="closePopup()">&times;</span>
-          <img src="UWIWall.jpg">
-  
-          <div class="tilegradient"></div>
-  
-          <div class="tiletxt">
-          <h3>Idek</h3>
-          </div>
-  
-        </div>
-        
       </div>
   
-      <div id="popup" class="popup">
-        <span class="close" onclick="closePopup()">&times;</span>
-        <img src="https://legiit-service.s3.amazonaws.com/73f8891e6e95315ca9d3c3e6226c47a1/6173b646e3f627312285ce2cf48df413.png" alt="Image" style="max-height: 60%;">
-        <h2 id="popupTitle">Display Name</h2>
-        <p id="popupDescription">Description goes here...</p>
+      <div class="allrectiles" id="sport">
+        <!-- tile start here -->
+       
+         <!-- and ends here -->
+      </div>
+     
     </div>
   
+    <div class="recommended">
+      <div id="Recc">
+        <h3>Food Places</h3>
+        <p>See More</p>
+        <span class="SeeMore">&#8594;</span>
+  
+      </div>
+  
+      <div class="allrectiles" id="foods">
+        <!-- tile start here -->
+       
+         <!-- and ends here -->
+      </div>
+     
     </div>
+  
+    <div class="recommended">
+      <div id="Recc">
+        <h3>UWI Facilites</h3>
+        <p>See More</p>
+        <span class="SeeMore">&#8594;</span>
+  
+      </div>
+  
+      <div class="allrectiles" id="UWI">
+        <!-- tile start here -->
+       
+         <!-- and ends here -->
+      </div>
+     
+    </div>
+  
+    <div id="popup" class="popup">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <img src="https://legiit-service.s3.amazonaws.com/73f8891e6e95315ca9d3c3e6226c47a1/6173b646e3f627312285ce2cf48df413.png" alt="Image" style="max-height: 60%;">
+    <h2 id="popupTitle">Display Name</h2>
+    <p id="popupDescription">Description goes here...</p>
+</div>
+
+</div>
   
     <!-- The overlay -->
-    <div id="overlay" class="overlay" onclick="closePopup()"></div>
-  
-  </body>
-  
-  <script type="module">
-  import { signIn, logout, auth, setAuthListeners } from './auth.js';
-  
-  let loginBtn = document.querySelector('#loginBtn');
-  let logoutBtn = document.querySelector('#logoutBtn');
-  
-  function showToast(message) {
-      // Create a toast element
-      const toast = document.createElement('div');
-      toast.classList.add('toast');
-      toast.textContent = message;
-  
-      // Append toast to the body
-      document.body.appendChild(toast);
-  
-      // Auto-hide the toast after a short delay
-      setTimeout(() => {
-          toast.remove();
-      }, 3000); // Adjust the delay (in milliseconds) as needed
-  }
-  
-  function setLoggedInUI() {
-      showToast('Logged In!');
-      document.querySelector('#user').innerHTML = `Signed in Anonymously`;
-      document.querySelector('#loginBtn').style.display = 'none';
-      document.querySelector('#logoutBtn').style.display = 'inline-block';
-  }
-  
-  function setLoggedOutUI() {
-      showToast('Logged Out!');
-      document.querySelector('#user').innerHTML = '';
-      document.querySelector('#loginBtn').style.display = 'inline-block';
-      document.querySelector('#logoutBtn').style.display = 'none';
-  }
-  
-  // Attach listeners
-  logoutBtn.addEventListener('click', logout);
-  loginBtn.addEventListener('click', signIn);
-  setAuthListeners(setLoggedInUI, setLoggedOutUI);
-  
-  loginBtn.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent form submission
-    signIn();
-  });
-  
-  </script>
-  
-  <script>
-     function openPopup(clickedElement) {
-      // Retrieve data attributes from the clicked tile
-      var title = clickedElement.getAttribute("data-title");
-      var description = clickedElement.getAttribute("data-description");
-      
-      // Populate the popup with data specific to the clicked tile
-      document.getElementById("popup").style.display = "block";
-      document.getElementById("overlay").style.display = "block";
-      document.getElementById("popupTitle").innerText = title;
-      document.getElementById("popupDescription").innerText = description;
-  }
-  
-    function closePopup() {
-        document.getElementById("popup").style.display = "none";
-        document.getElementById("overlay").style.display = "none";
-    }
-  </script>
+    <div id="overlay" class="overlay"></div>
   
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -475,5 +409,71 @@
         }
       });
     </script>
+    <script type="module">
+      import { signIn, logout, auth, setAuthListeners } from './auth.js';
+      
+      let loginBtn = document.querySelector('#loginBtn');
+      let logoutBtn = document.querySelector('#logoutBtn');
+      
+      function showToast(message) {
+          // Create a toast element
+          const toast = document.createElement('div');
+          toast.classList.add('toast');
+          toast.textContent = message;
+      
+          // Append toast to the body
+          document.body.appendChild(toast);
+      
+          // Auto-hide the toast after a short delay
+          setTimeout(() => {
+              toast.remove();
+          }, 3000); // Adjust the delay (in milliseconds) as needed
+      }
+      
+      function setLoggedInUI() {
+          showToast('Logged In!');
+          document.querySelector('#user').innerHTML = `Signed in Anonymously`;
+          document.querySelector('#loginBtn').style.display = 'none';
+          document.querySelector('#logoutBtn').style.display = 'inline-block';
+      }
+      
+      function setLoggedOutUI() {
+          showToast('Logged Out!');
+          document.querySelector('#user').innerHTML = '';
+          document.querySelector('#loginBtn').style.display = 'inline-block';
+          document.querySelector('#logoutBtn').style.display = 'none';
+      }
+      
+      // Attach listeners
+      logoutBtn.addEventListener('click', logout);
+      loginBtn.addEventListener('click', signIn);
+      setAuthListeners(setLoggedInUI, setLoggedOutUI);
+      
+      loginBtn.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent form submission
+        signIn();
+      });
+      
+      </script>
+      
+      <script>
+         function openPopup(clickedElement) {
+          // Retrieve data attributes from the clicked tile
+          var title = clickedElement.getAttribute("data-title");
+          var description = clickedElement.getAttribute("data-description");
+          
+          // Populate the popup with data specific to the clicked tile
+          document.getElementById("popup").style.display = "block";
+          document.getElementById("overlay").style.display = "block";
+          document.getElementById("popupTitle").innerText = title;
+          document.getElementById("popupDescription").innerText = description;
+      }
+      
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+      </script>
+      <script type ="module" src="main.js"></script>
   </body>
 </html>
