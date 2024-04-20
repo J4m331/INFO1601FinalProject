@@ -251,6 +251,15 @@
             background-color: rgba(0,0,0,0.5);
             z-index: 9998;
         }
+
+      @keyframes glow {
+        0% {
+              text-shadow: 0 0 10px orangered;
+          }
+        100% {
+              text-shadow: 0 0 20px orangered;
+          }
+      }
   
       @media (max-width: 600px) {
           .allrectiles {
@@ -285,6 +294,14 @@
             Login
           </button>
       </div>  
+      <span id="user"></span>
+        <button id="logoutBtn">
+            Logout
+        </button>
+        <button id="loginBtn">
+          Login
+        </button>
+    </div>
     </header>
   
     <div id="Welcome">
@@ -299,13 +316,16 @@
         <a id="addProfile" href="signup.html"> <button>Add Profile</button> </a>
       </div>
     </div>
+              <button id="getStarted">Add Profile</button>
+      <a id="addProfile" href="SignUp.html"> <button>Add Profile</button> </a>
+      </div>
+    </div>
   
-    <div class="recommended">
+  <div class="recommended">
       <div id="Recc">
         <h3>Recommended</h3>
         <p>See More</p>
-        <span class="SeeMore">&#8594;</span>
-  
+        <span class="SeeMore">&#8594;</span>  
       </div>
   
       <div class="allrectiles" id="recom">
@@ -314,14 +334,13 @@
          <!-- and ends here -->
       </div>
      
-    </div>
+  </div>
   
-    <div class="recommended">
+  <div class="recommended">
       <div id="Recc">
-        <h3>Clubs & Sports</h3>
+        <h3>Clubs & Societies</h3>
         <p>See More</p>
-        <span class="SeeMore">&#8594;</span>
-  
+        <span class="SeeMore">&#8594;</span>  
       </div>
   
       <div class="allrectiles" id="sport">
@@ -330,11 +349,11 @@
          <!-- and ends here -->
       </div>
      
-    </div>
+  </div>
   
     <div class="recommended">
       <div id="Recc">
-        <h3>Food Places</h3>
+        <h3>Vendors/h3>
         <p>See More</p>
         <span class="SeeMore">&#8594;</span>
   
@@ -363,20 +382,19 @@
       </div>
      
     </div>
-  
+
     <div id="popup" class="popup">
       <span class="close" onclick="closePopup()">&times;</span>
       <img src="https://legiit-service.s3.amazonaws.com/73f8891e6e95315ca9d3c3e6226c47a1/6173b646e3f627312285ce2cf48df413.png" alt="Image" style="max-height: 60%;">
       <h2 id="popupTitle">Display Name</h2>
       <p id="popupDescription">Description goes here...</p>
-  </div>
-
-</div>
+    </div>
   
     <!-- The overlay -->
     <div id="overlay" class="overlay"></div>
-  
-    <script>
+  </body>
+
+      <script>
       document.addEventListener('DOMContentLoaded', function() {
         const loadEl = document.querySelector('#load');
         // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
@@ -414,73 +432,90 @@
         }
       });
     </script>
-    <script type="module">
-      import { signIn, logout, auth, setAuthListeners } from './auth.js';
+<script type="module">
+import { signIn, logout, auth, setAuthListeners } from './auth.js';
+
+let loginBtn = document.querySelector('#loginBtn');
+let logoutBtn = document.querySelector('#logoutBtn');
+let addProfile = document.querySelector('#addProfile');
+let getStarted = document.querySelector('#getStarted');
+
+function showToast(message) {
+    // Create a toast element
+    const toast = document.createElement('div');
+    toast.classList.add('toast');
+    toast.textContent = message;
+
+    // Apply styles for positioning at the top
+    toast.style.position = 'fixed';
+    toast.style.top = '20px'; // Adjust this value as needed
+    toast.style.left = '50%';
+    toast.style.transform = 'translateX(-50%)';
+    toast.style.zIndex = '99999';
+
+    toast.style.animation = 'glow 1s ease-in-out infinite normal';
+
+    // Append toast to the body
+    document.body.appendChild(toast);
+
+    // Auto-hide the toast after a short delay
+    setTimeout(() => {
+        toast.remove();
+    }, 3000); // Adjust the delay (in milliseconds) as needed
+}
+
+function setLoggedInUI() {
+    showToast('Logged In!');
+    document.querySelector('#user').innerHTML = `Signed in Anonymously`;
+    document.querySelector('#loginBtn').style.display = 'none';
+    document.querySelector('#getStarted').style.display = 'none';
+    document.querySelector('#logoutBtn').style.display = 'inline-block';
+    document.querySelector('#addProfile').style.display = 'inline-block';
+}
+
+function setLoggedOutUI() {
+    showToast('Logged Out!');
+    document.querySelector('#user').innerHTML = '';
+    document.querySelector('#loginBtn').style.display = 'inline-block';
+    document.querySelector('#getStarted').style.display = 'inline-block';
+    document.querySelector('#logoutBtn').style.display = 'none';
+    document.querySelector('#addProfile').style.display = 'none';
+
+}
+
+// Attach listeners
+logoutBtn.addEventListener('click', logout);
+loginBtn.addEventListener('click', signIn);
+setAuthListeners(setLoggedInUI, setLoggedOutUI);
+
+loginBtn.addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent form submission
+  signIn();
+});
+
+getStarted.addEventListener('click', function() {
+    showToast('Please login first.');
+  });
+
+</script>
       
-      let loginBtn = document.querySelector('#loginBtn');
-      let logoutBtn = document.querySelector('#logoutBtn');
-      
-      function showToast(message) {
-          // Create a toast element
-          const toast = document.createElement('div');
-          toast.classList.add('toast');
-          toast.textContent = message;
-      
-          // Append toast to the body
-          document.body.appendChild(toast);
-      
-          // Auto-hide the toast after a short delay
-          setTimeout(() => {
-              toast.remove();
-          }, 3000); // Adjust the delay (in milliseconds) as needed
-      }
-      
-      function setLoggedInUI() {
-          showToast('Logged In!');
-          document.querySelector('#user').innerHTML = `Signed in Anonymously`;
-          document.querySelector('#loginBtn').style.display = 'none';
-          document.querySelector('#logoutBtn').style.display = 'inline-block';
-      }
-      
-      function setLoggedOutUI() {
-          showToast('Logged Out!');
-          document.querySelector('#user').innerHTML = '';
-          document.querySelector('#loginBtn').style.display = 'inline-block';
-          document.querySelector('#logoutBtn').style.display = 'none';
-      }
-      
-      // Attach listeners
-      logoutBtn.addEventListener('click', logout);
-      loginBtn.addEventListener('click', signIn);
-      setAuthListeners(setLoggedInUI, setLoggedOutUI);
-      
-      loginBtn.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent form submission
-        signIn();
-      });
-      
-      </script>
-      
-      <script>
-        function openPopup(clickedElement) {
-          // Retrieve data attributes from the clicked tile
-           var title = clickedElement.getAttribute("data-title");
-           var description = clickedElement.getAttribute("data-description");
-          console.log(title);
-          console.log(description);
-          // Populate the popup with data specific to the clicked tile
-          document.getElementById("popup").style.display = "block";
-          document.getElementById("overlay").style.display = "block";
-      
-          document.getElementById("popupTitle").innerText = title;
-          document.getElementById("popupDescription").innerHTML = description;
-      }
-      
-        function closePopup() {
-            document.getElementById("popup").style.display = "none";
-            document.getElementById("overlay").style.display = "none";
-        }
-      </script>
-      <script type ="module" src="main.js"></script>
-  </body>
+<script>
+   function openPopup(clickedElement) {
+    // Retrieve data attributes from the clicked tile
+    var title = clickedElement.getAttribute("data-title");
+    var description = clickedElement.getAttribute("data-description");
+    
+    // Populate the popup with data specific to the clicked tile
+    document.getElementById("popup").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("popupTitle").innerText = title;
+    document.getElementById("popupDescription").innerText = description;
+}
+
+  function closePopup() {
+      document.getElementById("popup").style.display = "none";
+      document.getElementById("overlay").style.display = "none";
+  }
+</script>
+  
 </html>
