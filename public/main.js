@@ -44,10 +44,10 @@ const db = getFirestore(app);
 async function getdata()
 {
     console.log("Testing");
-    const citiesCol = collection(db,'database');  //calling the database
-    const citySnapshot = await getDocs(citiesCol); //getting the data from database
-    const cityList = citySnapshot.docs.map(doc => doc.data()); /// doing a map and get the data from it. 
-    return cityList;
+    const tilesCollection = collection(db,'database'); 
+    const tilesDB = await getDocs(tilesCollection); 
+    const tilesList = tilesDB.docs.map(doc => doc.data()); 
+    return tilesList;
 }
 
 
