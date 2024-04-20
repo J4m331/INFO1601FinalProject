@@ -360,11 +360,11 @@
     </div>
   
     <div id="popup" class="popup">
-    <span class="close" onclick="closePopup()">&times;</span>
-    <img src="https://legiit-service.s3.amazonaws.com/73f8891e6e95315ca9d3c3e6226c47a1/6173b646e3f627312285ce2cf48df413.png" alt="Image" style="max-height: 60%;">
-    <h2 id="popupTitle">Display Name</h2>
-    <p id="popupDescription">Description goes here...</p>
-</div>
+      <span class="close" onclick="closePopup()">&times;</span>
+      <img src="https://legiit-service.s3.amazonaws.com/73f8891e6e95315ca9d3c3e6226c47a1/6173b646e3f627312285ce2cf48df413.png" alt="Image" style="max-height: 60%;">
+      <h2 id="popupTitle">Display Name</h2>
+      <p id="popupDescription">Description goes here...</p>
+  </div>
 
 </div>
   
@@ -457,22 +457,24 @@
       </script>
       
       <script>
-         function openPopup(clickedElement) {
+        function openPopup(clickedElement) {
           // Retrieve data attributes from the clicked tile
-          var title = clickedElement.getAttribute("data-title");
-          var description = clickedElement.getAttribute("data-description");
-          
+           var title = clickedElement.getAttribute("data-title");
+           var description = clickedElement.getAttribute("data-description");
+          console.log(title);
+          console.log(description);
           // Populate the popup with data specific to the clicked tile
           document.getElementById("popup").style.display = "block";
           document.getElementById("overlay").style.display = "block";
+      
           document.getElementById("popupTitle").innerText = title;
-          document.getElementById("popupDescription").innerText = description;
+          document.getElementById("popupDescription").innerHTML = description;
       }
       
         function closePopup() {
             document.getElementById("popup").style.display = "none";
             document.getElementById("overlay").style.display = "none";
-        }
+        }
       </script>
       <script type ="module" src="main.js"></script>
   </body>

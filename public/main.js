@@ -57,22 +57,18 @@ function content(records)
 {
     let result =document.querySelector('#recom');
     let html = '';
-    let x=0;
     for(let record of records){
     html+=`
-    <div class="recommendedTile" onclick="openPopup()">
+    <div class="recommendedTile" data-title= ${record.Name} data-description=${record.description} onclick="openPopup(this)">
     <span class="close" onclick="closePopup()">&times;</span>
-    <img src="${records[x].picture}">
+    <img src="${record.picture}">
 
     <div class="tilegradient"></div>
 
       <div class="tiletxt">
-        <h3>${records[x].Name}</h3>
+        <h3>${record.Name}</h3>
     </div>
-  </div>
-        `;
-    //}
-    x++;
+  </div>`;
     }
     
     result.innerHTML =html;
@@ -161,10 +157,3 @@ contentfood(array);
 contentsport(array);
 contentuwi(array);
 content(array);
-
-
- 
-
-
-
-

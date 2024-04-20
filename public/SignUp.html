@@ -275,7 +275,7 @@ async function callbackFunction(event) {
   let form = event.target;
     let formData = new FormData(form);
     const {Name, picture, description, link, Category} = Object.fromEntries(formData);
-    await writedata(Category,description,link,picture,name);
+    await writedata(Category,description,link,picture,Name);
     alert({html: 'Review created!'});
       form.reset();
 };
