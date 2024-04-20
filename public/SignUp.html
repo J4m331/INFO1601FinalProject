@@ -16,7 +16,6 @@
       align-items: center;
       justify-content: center;
       height: 100%;
-      padding: 0;
       margin: 0;
     }
 
@@ -39,15 +38,6 @@
       text-decoration: none;
     }
 
-    #signup{
-      position: relative;
-      top: 30px;
-    }
-
-  .signup-part {
-      display: none;
-    }
-
     .buttondiv{
       text-align: center;
     }
@@ -63,25 +53,15 @@
       position: relative;
     }
 
-    #loginoption{
-      text-align: center;
-      padding: 10px;
-    }
-
-    #loginoption a{
-      text-decoration: none;
-      color: orangered;
+    #second-part{
+      padding: 20px;
+      max-width: 100%;
     }
 
     h3{
       position: relative;
       text-align: center;
       margin-bottom:25px;
-    }
-
-  #second-part{
-    padding: 20px;
-    width: 100%;
     }
     
     form {
@@ -91,6 +71,11 @@
       top: 20px;
       margin-bottom: 60px;
     }
+
+    form h2{
+      text-align: center;
+    }
+
 
     form .buttondiv{
       margin: 10px;
@@ -113,37 +98,6 @@
       box-sizing: border-box;
     }
 
-.popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 43, 0.9);
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 30px 5px rgba(255, 255, 255, 0.2);
-  z-index: 9999;
-  width: 70%;
-  height: 70%;
-  text-align: center;
-}
-
-.popup-content {
-  margin: 0 auto; /* Center horizontally */
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-content h2{
-  padding: 0;
-  margin: 0;
-}
-
 .overlay {
   display: none;
   position: fixed;
@@ -153,20 +107,6 @@
   left: 0;
   background-color: rgba(0,0,0,0.5);
   z-index: 9998;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .buttondiv {
@@ -181,88 +121,52 @@
       <a href="index.html"><h2>UCH</h2></a>
   </header>
 
-  <div id="signup">
-    <h2>Sign Up</h2>
-  </div>
-
-<!-- First Part: Email/Phone and Password -->
-  
   <div>
-    <form id="first-part" action="#" method="post">
-    <h3>You Are signing up at your own risk</h3>
+    <form id="second-part" class="signup-part" action="/submit" method="post">
+    <h2>Add profile</h2>
+    <h3>Display Details</h3>
+    <label for="display_name">Display Name:</label><br>
+    <input type="text" id="display_name" name="display_name" required><br><br>
+    
+    <label for="category">Category:</label><br>
+    <select id="category" name="category">
+      <option value="default">Select Here</option>
+      <option value="clubs">Clubs/ Societies</option>
+      <option value="events">Events</option>
+      <option value="vendor">Vendor</option>
+      <option value="UWI">UWI</option>
+      <option value="other">Other</option>
+    </select><br><br>
+    
+    <label for="link">Image URL:</label><br>
+    <input type="url" id="picture" name="picture"><br><br>
+    
+    <label for="link">Link:</label><br>
+    <input type="url" id="link" name="link"><br><br>
+    
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+    
     <div class="buttondiv">
       <input type="button" value="Cancel" onclick="goToHomepage()" class="button">
-      <input type="button" value="Next" onclick="showNextPart('second-part')" class="button">
+      <input type="submit" value="Add" class="button">
     </div>
   </form>
   </div>
-
-<!-- Second Part: Display Name, Category, Picture, Link, Description -->
-<div>
-  <form id="second-part" class="signup-part" action="/submit" method="post">
-  <h2>Add profile</h2>
-  <h3>Display Details</h3>
-  <label for="display_name">Display Name:</label><br>
-  <input type="text" id="display_name" name="display_name" required><br><br>
-  
-  <label for="category">Category:</label><br>
-  <select id="category" name="category">
-    <option value="default">Select Here</option>
-    <option value="clubs">Clubs/ Societies</option>
-    <option value="events">Events</option>
-    <option value="vendor">Vendor</option>
-    <option value="UWI">UWI</option>
-    <option value="other">Other</option>
-  </select><br><br>
-  
-  <label for="link">Image URL:</label><br>
-  <input type="url" id="picture" name="picture"><br><br>
-  
-  <label for="link">Link:</label><br>
-  <input type="url" id="link" name="link"><br><br>
-  
-  <label for="description">Description:</label><br>
-  <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
-  
-  <div class="buttondiv">
-    <input type="button" value="Cancel" onclick="goToHomepage()" class="button">
-    <input type="submit" value="Add" class="button">
-  </div>
-</form>
-  </div>
-  </div>
-</div>
 
 <div id="overlay" class="overlay"></div>
 </body>
 
 <script>
-  function showNextPart(nextPartId) {
-    document.getElementById('first-part').style.display = 'none';
-    document.getElementById(nextPartId).style.display = 'block';
-  }
 
   function goToHomepage() {
-    window.location.href = "index.html";
+    window.location.href = "index.html"; // Change "homepage.html" to the actual URL of your homepage
   }
 
-  function goBack() {
-  document.getElementById('second-part').style.display = 'none';
-  document.getElementById('first-part').style.display = 'block';
-}
-
-function openLoginPopup() {
-  document.getElementById("loginPopup").style.display = "block";
-  document.getElementById("overlay").style.display = "block";
-}
-
-function closeLoginPopup() {
-  document.getElementById("loginPopup").style.display = "none";
-  document.getElementById("overlay").style.display = "none";
-}
 </script>
+
 <script type ="module">
-  import { writedata } from './sending.js';
+import { writedata } from './sending.js';
 const form = document.getElementById('second-part');
 
 form.addEventListener('submit', callbackFunction);
@@ -273,11 +177,13 @@ async function callbackFunction(event) {
   let form = event.target;
     let formData = new FormData(form);
     const {Name, picture, description, link, Category} = Object.fromEntries(formData);
-    await writedata(Category,description,link,picture,Name);
+    await writedata(Name, picture, description, link, Category);
     alert({html: 'Review created!'});
       form.reset();
 };
 
 </script>
+
 <script src="./auth.js"></script>
+
 </html>

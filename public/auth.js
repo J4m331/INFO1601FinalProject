@@ -1,35 +1,44 @@
-import { initializeApp } from "firebase/app";
-import firebaseConfig from "./firebaseConfig";
-import { getAuth,signInWithPopup,GoogleAuthProvider,signInAnonymously } from "firebase/auth";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+import { 
+  getAuth, 
+  signOut, 
+  signInAnonymously, 
+  setPersistence, 
+  browserLocalPersistence, 
+  onAuthStateChanged 
+} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+import firebaseConfig from "./firebaseConfig.js";
 
-const email_text = document.querySelector('#email_phone');
-const pass_text = document.querySelector('#password');
 
-const Login = document.querySelector('#Google');
+const app = initializeApp(firebaseConfig);
 
 const auth = getAuth();
-const provider = new GoogleAuthProvider();
 
-async function handleGoogleLogin() {
-    signInWithPopup(auth, provider)
-    .then((result) => {
-      // Handle successful Google sign-in logic here
-      // (e.g., access user info, redirect to another page)
-      const user = result.user;
-      console.log(user);
-      // Redirect to another page
-      window.location.href = "home.html";
-    })
-    .catch((error) => {
-      // Handle errors during Google sign-in
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.error(errorCode, errorMessage);
-    });
+function setAuthListeners(onLogin, onLogout){
+  onAuthStateChanged(auth, user => {
+    if (user) {
+      onLogin();
+    } else {
+      onLogout();
+    }
+  });
 }
 
-function AnonymousLogin(){
-
+async function signIn(){
+  try{
+    await setPersistence(auth, browserLocalPersistence);
+    const user = await signInAnonymously(auth);
+  }catch(e){
+    console.error(e);
+  }
 }
 
-Login.addEventListener('click', handleGoogleLogin);
+async function logout() {
+  try {
+    await signOut(auth);
+  } catch (error) {
+    console.error('Error signing out', error);
+  }
+}
+
+export {auth, setAuthListeners, signIn, logout};
